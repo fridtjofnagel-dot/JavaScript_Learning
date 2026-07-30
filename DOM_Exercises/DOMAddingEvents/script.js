@@ -12,3 +12,19 @@ const tasks = [
   'Optimize the performance',
   'Design',
 ];
+
+const addItemBtn = document.querySelector("#add-item-btn")
+const itemList = document.querySelector('#item-list')
+
+addItemBtn.addEventListener("click", () => {
+
+    const randomIndex = Math.floor(Math.random() * tasks.length);
+    const randomTask = tasks[randomIndex];
+
+    const newLi = document.createElement("li");
+    newLi.textContent = randomTask;
+
+    itemList.appendChild(newLi);
+
+    newLi.scrollIntoView({behavior: "smooth"})
+})
