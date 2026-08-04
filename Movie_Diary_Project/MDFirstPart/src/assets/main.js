@@ -1,4 +1,10 @@
 const popularMoviesList = document.getElementById('popular-movies')
+popularMoviesList.style.display = 'grid';
+popularMoviesList.style.gridTemplateColumns = 'repeat(4, 1fr)'; // Genau 4 nebeneinander
+popularMoviesList.style.gap = '20px';                         // Abstand zwischen den Karten
+popularMoviesList.style.listStyle = 'none';                    // Entfernt den Punkt (Bullet point)
+popularMoviesList.style.padding = '0';
+
 
 const storeItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value))
@@ -35,9 +41,29 @@ function loadTop10Movies() {
             const li = document.createElement('li')
             const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
 
+            li.style.backgroundColor = '#2c2c38'; // Grauer Rahmen / Hintergrund
+            li.style.borderRadius = '10px';
+            li.style.padding = '15px';
+            li.style.display = 'flex';
+            li.style.flexDirection = 'column';
+            li.style.justifyContent = 'space-between';
+
+
             li.innerHTML = `
-                <img src="${posterUrl}" alt="${movie.title}"/>
-                <span>${movie.title} ${movie.release_date}</span>
+            
+                    <p>
+                        <p>    
+
+                            <img src="${posterUrl}" alt="${movie.title}" style="width: 200px; height: auto"/>
+                         </p>
+                        <p>
+                        <span>${movie.title}
+                        </p>
+                        <p>
+                        'Release Date: ${movie.release_date}</span>
+                        </p>
+                </li>
+            </ul>
             `;
             const addToJournalButton = document.createElement('button');
             addToJournalButton.textContent = 'Add this movie to my journal';
