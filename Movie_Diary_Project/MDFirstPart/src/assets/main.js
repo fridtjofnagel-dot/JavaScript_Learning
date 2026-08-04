@@ -65,3 +65,5 @@ function loadTop10Movies() {
 
 const element = document.querySelector('#popular-movies');
 
+// DOM Manupilating to Style the Page
+
